@@ -61,7 +61,8 @@ flowchart TD
     - The link to find the most recent is located [here](https://www.minecraft.net/en-us/download/server).
 4. Create a public private key pair and add it to [/.ssh/](/.ssh).
     - Open a command prompt and navigate to [/.ssh/](/.ssh).
-    - Run the command `ssh-keygen -t rsa -b 4096 -f /minecraft_key -C "minecraft server key"`.
+    - Run the command `ssh-keygen -t rsa -b 4096 -f ./minecraft_key -C "minecraft server key"`.
+      - Leave the password empty (hit enter twice)
     - Ensure you name the key `minecraft_key` (there should be to files, `minecraft_key` and `minecraft_key.pub`) for the script to run properly. 
 
 #### Provisioning
