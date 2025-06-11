@@ -35,7 +35,7 @@ data "aws_ami" "ubuntu" {
 
 provider "aws" {
   region  = var.region
-  shared_credentials_files = ["../.aws/credentials"]
+  shared_credentials_files = [var.aws_credentials_path]
 }
 
 resource "aws_instance" "minecraft_server" {

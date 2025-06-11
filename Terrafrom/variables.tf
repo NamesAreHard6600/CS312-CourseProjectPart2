@@ -33,3 +33,10 @@ variable "volume_size" {
     type = number
     default = 20
 }
+
+variable "aws_credentials_path" {
+    description = "The path to aws credentials"
+    type = string
+    default = "../.aws/credentials"
+}
+
