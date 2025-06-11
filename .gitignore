@@ -1,4 +1,4 @@
-.ssh/minecraft_key
+.ssh
 .terraform/
 terraform.tfstate
 .terraform.tfstate.lock.info
