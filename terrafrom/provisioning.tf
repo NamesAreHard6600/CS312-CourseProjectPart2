@@ -11,7 +11,7 @@ resource "null_resource" "minecraft_provisioning" {
       type        = "ssh"
       user        = "ubuntu"
       private_key = file("../.ssh/minecraft_key")
-      host        = aws_instance.minecraft_server.public_ip
+      host        = aws_eip.minecraft_server_ip.public_ip
     }
   }
 
@@ -26,7 +26,7 @@ resource "null_resource" "minecraft_provisioning" {
       type        = "ssh"
       user        = "ubuntu"
       private_key = file("../.ssh/minecraft_key")
-      host        = aws_instance.minecraft_server.public_ip
+      host        = aws_eip.minecraft_server_ip.public_ip
     }
   }
 
