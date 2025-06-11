@@ -1,6 +1,7 @@
 #!/bin/bash
 # Minecraft Server Auto-Install Script
 # This script assumes it's being run as root or with sudo privileges
+# Version 1.0.0
 
 # Configuration variables
 MINECRAFT_USER="minecraft"

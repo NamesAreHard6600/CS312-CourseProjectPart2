@@ -1,5 +1,7 @@
 # CS312-CourseProjectPart2
-AWS Minecraft Server through scripting
+Version: 1.0.0 <br>
+By running this code, you agree to the [Minecraft EULA](https://www.minecraft.net/en-us/eula) <br>
+Please View README on Github for best viewing experience
 
 ## Background
 This repository is designed to automate the provisioning and configuration of a minecraft server on an EC2 instance on AWS through Terraform and Bash scripiting.
@@ -83,6 +85,9 @@ You should now be able to connect to the server on minecraft:
 ## Resources:
 Minecraft Server Page: https://www.minecraft.net/en-us/download/server <br>
 Setting up Terraform: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli <br>
+Terraform Variables: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-variables <br>
+Terraform General Documentation: https://developer.hashicorp.com/terraform/docs <br>
 AWS CLI: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html <br>
-EULA
-AI Used for debugging
+AWS CLI Reboot Instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-reboot.html <br>
+Bash Documentation: https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html <br>
+AI Used for debugging and grammar checking

@@ -1,3 +1,5 @@
+# Version: 1.0.0
+
 terraform {
   required_providers {
     aws = {
