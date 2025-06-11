@@ -11,13 +11,13 @@ terraform {
 
 # Key Pair
 resource "aws_key_pair" "minecraft_key" {
-  key_name   = "Minecraft-Key"
+  key_name   = var.key_name
   public_key = file("../.ssh/minecraft_key.pub")
 }
 
 # Security Group
 resource "aws_security_group" "minecraft_sg" {
-  name        = "Minecraft-Server-Security-Group"
+  name        = var.sg_name
   description = "Security group for Minecraft Server"
 
   # SSH access from anywhere: I believe this is neccesary for ansible to work, although dangerous
@@ -70,24 +70,24 @@ data "aws_ami" "ubuntu" {
 }
 
 provider "aws" {
-  region  = "us-west-2"
+  region  = var.region
   shared_credentials_files = ["../.aws/credentials"]
 }
 
 resource "aws_instance" "minecraft_server" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.small"
+  instance_type = var.instance_type
   key_name      = aws_key_pair.minecraft_key.key_name
 
   vpc_security_group_ids = [aws_security_group.minecraft_sg.id]
 
   root_block_device {
-    volume_size = 20 # 20 GiB
+    volume_size = var.volume_size # 20 GiB default
     volume_type = "gp3"
   }
 
   tags = {
-    Name = "Minecraft-Server-2"
+    Name = var.instance_name
   }
 }
 
