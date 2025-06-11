@@ -33,7 +33,14 @@ EOF
 # Create stop script
 cat > stop.sh <<EOF
 #!/bin/bash
-kill -9 \$(pgrep -f "java.*server.jar")
+if [ -f /tmp/minecraft.pid ]; then
+  kill -15 $(cat /tmp/minecraft.pid)
+  sleep 10
+  if ps -p $(cat /tmp/minecraft.pid) > /dev/null; then
+    kill -9 $(cat /tmp/minecraft.pid)
+  fi
+  rm /tmp/minecraft.pid
+fi
 EOF
 
 # Make scripts executable
@@ -55,7 +62,7 @@ User=$MINECRAFT_USER
 WorkingDirectory=$INSTALL_DIR
 ExecStart=$INSTALL_DIR/start.sh
 ExecStop=$INSTALL_DIR/stop.sh
-Restart=always
+Restart=on-failure
 RestartSec=3
 StandardOutput=journal
 StandardError=journal
